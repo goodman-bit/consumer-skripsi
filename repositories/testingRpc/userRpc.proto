@@ -1,0 +1,32 @@
+syntax = "proto3";
+package userRpc;
+
+message UserRequest {
+  int64 userId = 1;
+}
+
+message MetaResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message MetaResultUser {
+  int64 userId = 1;
+  string userCode = 2;
+  string userName = 3;
+  string phoneNumber = 4;
+  string address = 5;
+  string email = 6;
+}
+
+message UserResult {
+  MetaResponse meta = 1;
+  MetaResultUser result = 2;
+}
+
+
+service UserService {
+  rpc GetUserById(userRpc.UserRequest) returns (userRpc.UserResult);
+}
+
+option go_package = "/;userRpc";

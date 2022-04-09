@@ -1,0 +1,9 @@
+[default]
+region = us-east-2
+output = json
+[profile localstack]
+region = us-east-1
+output = json
+[profile local-prod]
+region = us-east-1
+output = json
